@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uygulama/view/anasayfa.dart';
+import 'package:uygulama/view/homePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: '',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      home: anaSayfa(),
+      home: const homePage(),
     );
   }
 }
