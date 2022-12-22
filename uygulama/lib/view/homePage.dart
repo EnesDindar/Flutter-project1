@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class homePage extends StatefulWidget {
-  const homePage({super.key});
+  homePage({super.key});
 
   @override
   State<homePage> createState() => _homePageState();
@@ -10,7 +10,7 @@ class homePage extends StatefulWidget {
 
 class _homePageState extends State<homePage> {
   String? selectedItem;
-  final formKey = new GlobalKey<FormState>();
+  String? _select = null;
 
   List<String> persons = ["2 Oyuncu", "4 Oyuncu", "6 Oyuncu", "8 Oyuncu"];
   @override
@@ -63,7 +63,8 @@ class _homePageState extends State<homePage> {
                   }).toList(),
                   onChanged: (String? value) {
                     setState(() {
-                      selectedItem = value!;
+                      selectedItem = value;
+                      _select = value;
                     });
                   },
                   value: selectedItem == "" ? null : selectedItem,
@@ -71,6 +72,12 @@ class _homePageState extends State<homePage> {
                 ),
               ),
             ),
+            //dropdown finish
+            Text(_select ?? '$_select'),
+            if(_select ==persons[0]) 
+           { 
+           };
+           
           ],
         ),
       ),
@@ -78,7 +85,35 @@ class _homePageState extends State<homePage> {
   }
 }
 
+class _textField extends StatelessWidget {
+  const _textField({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+        controller: _controller,
+        style: TextStyle(color: _themeColors().color2),
+        decoration: InputDecoration(
+            border: OutlineInputBorder(),
+          
+            contentPadding: EdgeInsets.all(20),
+           
+            hintText: "Yazını Bekliyorum",
+           
+            hintStyle: TextStyle(color: _themeColors().color2),
+           
+            filled: true,
+            
+            fillColor: _themeColors().color2),
+        autofocus: false,
+        cursorColor: _themeColors().color3);
+  }
+}
+
 class _themeColors {
   final color1 = Colors.lightGreen[300];
   final color2 = Colors.black;
+  final color3 = Colors.white;
 }
