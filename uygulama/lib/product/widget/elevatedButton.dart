@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:uygulama/product/widget/callback_dropdown.dart';
 import 'package:uygulama/view/homePage.dart';
+import '../product/widget/callback_dropdown.dart';
 
 import '../../view/secondScreen.dart';
 
 class elevatedButton1 extends StatefulWidget {
-  const elevatedButton1({super.key});
-
+  const elevatedButton1({super.key, this.onNumber});
+  final bool Function(int number)? onNumber;
   @override
   State<elevatedButton1> createState() => _elevatedButton1State();
 }
@@ -14,8 +16,12 @@ class _elevatedButton1State extends State<elevatedButton1> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(primary: themeColors1().color1),
       onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => secondScreen()));
+        setState(() {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CallBackDropdown(onUserSelected: (user) {})));
+          Navigator.pushNamed(context, '/uygulama/lib/view/secondScreen.dart');
+        });
       },
       child: const Text('KAYDET'),
     );

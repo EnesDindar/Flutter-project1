@@ -4,8 +4,6 @@ import 'package:uygulama/product/widget/elevatedButton.dart';
 import '../product/widget/callback_dropdown.dart';
 
 class homePage extends StatefulWidget {
-  homePage({super.key});
-
   @override
   State<homePage> createState() => _homePageState();
 }
@@ -15,14 +13,14 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            automaticallyImplyLeading: true,
-            backgroundColor: const Color.fromARGB(137, 90, 89, 89),
-            leading: Icon(Icons.sports_soccer_outlined,
+          backgroundColor: const Color.fromARGB(137, 90, 89, 89),
+          actions: [
+            Icon(Icons.sports_soccer_outlined,
                 color: themeColors1().color1, shadows: const [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
-            title: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60),
-              child: Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
-            )),
+          ],
+          title: const Center(
+              child: Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)]))),
+        ),
         body: Center(
           child: Column(
             children: [
@@ -40,11 +38,10 @@ class _homePageState extends State<homePage> {
                           blurRadius: 8,
                         ),
                       ]),
-                  child: CallBackDropdown(onUserSelected: (CallbackUser user) {
-                    print(user);
-                  }),
+                  child: CallBackDropdown(onUserSelected: (CallbackUser user) {}),
                 ),
               ),
+              Text(''),
               elevatedButton1()
             ],
           ),

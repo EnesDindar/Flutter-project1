@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:uygulama/product/widget/elevatedButton.dart';
 import '../../view/homePage.dart';
 
 class CallBackDropdown extends StatefulWidget {
@@ -11,14 +11,14 @@ class CallBackDropdown extends StatefulWidget {
 }
 
 class _CallBackDropdownState extends State<CallBackDropdown> {
-  CallbackUser? _user;
+  CallbackUser? user;
 
-  void _updateUser(CallbackUser? item) {
+  void updateUser(CallbackUser? item) {
     setState(() {
-      _user = item;
+      user = item;
     });
-    if (_user != null) {
-      widget.onUserSelected.call(_user!);
+    if (user != null) {
+      widget.onUserSelected.call(user!);
     }
   }
 
@@ -36,7 +36,7 @@ class _CallBackDropdownState extends State<CallBackDropdown> {
           fontSize: 20,
         ),
         hint: const Text("Lütfen Kişi Sayısını Giriniz"),
-        value: _user,
+        value: user,
         items: CallbackUser.dummyUsers().map((e) {
           return DropdownMenuItem(
             alignment: Alignment.center,
@@ -51,6 +51,6 @@ class _CallBackDropdownState extends State<CallBackDropdown> {
             value: e,
           );
         }).toList(),
-        onChanged: _updateUser);
+        onChanged: updateUser);
   }
 }
