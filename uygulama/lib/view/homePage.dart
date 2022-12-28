@@ -1,82 +1,116 @@
 import 'package:flutter/material.dart';
-import 'package:uygulama/product/widget/elevatedButton.dart';
-
-import '../product/widget/callback_dropdown.dart';
+import 'package:uygulama/view/secondPage.dart';
 
 class homePage extends StatefulWidget {
-  @override
-  State<homePage> createState() => _homePageState();
+  State createState() => homePageState();
 }
 
-class _homePageState extends State<homePage> {
+class homePageState extends State<homePage> {
+  String dropdownValue = 'Oyuncu Sayısını Giriniz...';
+  String uyari = 'Oyuncu Sayısını Giriniz...';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color.fromARGB(137, 90, 89, 89),
-          actions: [
-            Icon(Icons.sports_soccer_outlined,
-                color: themeColors1().color1, shadows: const [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
-          ],
-          title: const Center(
-              child: Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)]))),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(137, 90, 89, 89),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Icon(Icons.sports_soccer_outlined,
+              color: Colors.green[400], shadows: const [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
         ),
-        body: Center(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: themeColors1().color1,
-                      border: Border.all(width: 2, color: themeColors1().color2),
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: themeColors1().color2.withOpacity(0.2),
-                          spreadRadius: 5,
-                          blurRadius: 8,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: Icon(Icons.sports_soccer_outlined,
+                color: Colors.green[400], shadows: const [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+          ),
+        ],
+        title: const Center(
+            child: Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)]))),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 250),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [Colors.redAccent, Colors.blueAccent, Colors.purpleAccent]),
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.57), //shadow for button
+                          blurRadius: 5) //blur radius of shadow
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30),
+                  child: DropdownButtonFormField<String>(
+                    dropdownColor: Colors.green,
+                    elevation: 0,
+                    isExpanded: true,
+                    icon: Icon(Icons.arrow_drop_down),
+                    iconSize: 42,
+                    iconEnabledColor: Colors.white,
+                    value: dropdownValue,
+                    items: <String>['Oyuncu Sayısını Giriniz...', '2 OYUNCU', '4 OYUNCU', '6 OYUNCU', '8 OYUNCU']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(
+                          value,
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
-                      ]),
-                  child: CallBackDropdown(onUserSelected: (CallbackUser user) {}),
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        dropdownValue = newValue!;
+                      });
+                    },
+                  ),
                 ),
               ),
-              Text(''),
-              elevatedButton1()
-            ],
-          ),
-        ));
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  if (dropdownValue != uyari) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => secondPage(userSelected: dropdownValue)),
+                    );
+                  } else {
+                    showAlertDialog(context);
+                  }
+                },
+                child: Text('KAYDET'))
+          ],
+        ),
+      ),
+    );
   }
 }
 
-class CallbackUser {
-  final String player;
-
-  CallbackUser(this.player);
-
-  // TODO: Dummy Remove it
-  static List<CallbackUser> dummyUsers() {
-    return [
-      CallbackUser('2 Oyuncu'),
-      CallbackUser('4 Oyuncu'),
-      CallbackUser('6 Oyuncu'),
-      CallbackUser('8 Oyuncu'),
-    ];
-  }
-
-  @override
-  bool operator ==(covariant CallbackUser other) {
-    if (identical(this, other)) return true;
-
-    return other.player == player;
-  }
-
-  @override
-  int get hashCode => player.hashCode;
-}
-
-class themeColors1 {
-  final color1 = Colors.lightGreen[300];
-  final color2 = Colors.black;
-  final color3 = Colors.white;
+showAlertDialog(BuildContext context) {
+  Widget okButton = TextButton(
+    child: const Text("TAMAM"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+  AlertDialog alert = AlertDialog(
+    title: Text("UYARI!"),
+    content: Text("Lütfen Oyuncu Sayısını Giriniz"),
+    actions: [
+      okButton,
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
