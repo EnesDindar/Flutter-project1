@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uygulama/view/secondPage.dart';
+import 'package:uygulama/product/widget/ElevatedButton.dart';
 
 class homePage extends StatefulWidget {
   State createState() => homePageState();
@@ -7,37 +8,41 @@ class homePage extends StatefulWidget {
 
 class homePageState extends State<homePage> {
   String dropdownValue = 'Oyuncu Sayısını Giriniz...';
-  String uyari = 'Oyuncu Sayısını Giriniz...';
+  final String uyari = 'Oyuncu Sayısını Giriniz...';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(137, 90, 89, 89),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: Icon(Icons.sports_soccer_outlined,
-              color: Colors.green[400], shadows: const [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+          ),
         ),
-        actions: [
+        leading: const Padding(
+          padding: EdgeInsets.only(left: 20.0),
+          child: Icon(Icons.sports_soccer_outlined,
+              color: Colors.white, shadows: [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+        ),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 20.0),
+            padding: EdgeInsets.only(right: 20.0),
             child: Icon(Icons.sports_soccer_outlined,
-                color: Colors.green[400], shadows: const [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+                color: Colors.white, shadows: [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
           ),
         ],
-        title: const Center(
-            child: Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)]))),
+        title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
       ),
       body: Center(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 250),
+              padding: const EdgeInsets.only(top: 250),
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [Colors.redAccent, Colors.blueAccent, Colors.purpleAccent]),
+                    gradient: const LinearGradient(colors: [Colors.cyan, Colors.indigo]),
                     borderRadius: BorderRadius.circular(5),
-                    boxShadow: <BoxShadow>[
+                    boxShadow: const <BoxShadow>[
                       BoxShadow(
                           color: Color.fromRGBO(0, 0, 0, 0.57), //shadow for button
                           blurRadius: 5) //blur radius of shadow
@@ -45,10 +50,10 @@ class homePageState extends State<homePage> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 30, right: 30),
                   child: DropdownButtonFormField<String>(
-                    dropdownColor: Colors.green,
+                    dropdownColor: Colors.cyan,
                     elevation: 0,
                     isExpanded: true,
-                    icon: Icon(Icons.arrow_drop_down),
+                    icon: const Icon(Icons.arrow_drop_down),
                     iconSize: 42,
                     iconEnabledColor: Colors.white,
                     value: dropdownValue,
@@ -58,7 +63,7 @@ class homePageState extends State<homePage> {
                         value: value,
                         child: Text(
                           value,
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                          style: const TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       );
                     }).toList(),
@@ -74,7 +79,7 @@ class homePageState extends State<homePage> {
             const SizedBox(
               height: 20,
             ),
-            ElevatedButton(
+            ElevatedButton1(
                 onPressed: () {
                   if (dropdownValue != uyari) {
                     Navigator.push(
@@ -85,7 +90,8 @@ class homePageState extends State<homePage> {
                     showAlertDialog(context);
                   }
                 },
-                child: Text('KAYDET'))
+                borderRadius: BorderRadius.circular(20),
+                child: const Text('KAYDET'))
           ],
         ),
       ),
@@ -101,8 +107,8 @@ showAlertDialog(BuildContext context) {
     },
   );
   AlertDialog alert = AlertDialog(
-    title: Text("UYARI!"),
-    content: Text("Lütfen Oyuncu Sayısını Giriniz"),
+    title: const Text("UYARI!"),
+    content: const Text("Lütfen Oyuncu Sayısını Giriniz"),
     actions: [
       okButton,
     ],

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:uygulama/product/widget/ElevatedButton.dart';
 import 'homePage.dart';
 
 class secondPage extends StatefulWidget {
-  secondPage({super.key, this.userSelected});
-  String? userSelected; //dropdownValue değeri
+  const secondPage({super.key, this.userSelected});
+  final String? userSelected; //dropdownValue degeri
   @override
   State<secondPage> createState() => _secondPageState();
 }
 
 class _secondPageState extends State<secondPage> {
   String? name1, name2, name3, name4, name5, name6, name7, name8;
+  String name9 = 'LÜTFEN İSİM GİRİNİZ!';
   String _textName1 = "",
       _textName2 = "",
       _textName3 = "",
@@ -17,11 +19,16 @@ class _secondPageState extends State<secondPage> {
       _textName5 = "",
       _textName6 = "",
       _textName7 = "",
-      _textName8 = "";
+      _textName8 = "",
+      _textName9 = "";
 
   final formKey = GlobalKey<FormState>();
   void _saveFormData() {
-    if (formKey.currentState!.validate()) {
+    if (formKey.currentState?.validate() == null) {
+      setState(() {
+        _textName9 = name9;
+      });
+    } else if (formKey.currentState!.validate()) {
       formKey.currentState?.save();
       setState(() {
         _textName1 = name1!;
@@ -40,16 +47,20 @@ class _secondPageState extends State<secondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(137, 90, 89, 89),
-        actions: [
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+          ),
+        ),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 20.0),
+            padding: EdgeInsets.only(right: 20.0),
             child: Icon(Icons.sports_soccer_outlined,
-                color: Colors.green[400], shadows: const [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+                color: Colors.white, shadows: [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
           ),
         ],
-        title: const Center(
-            child: Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)]))),
+        title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -68,20 +79,25 @@ class _secondPageState extends State<secondPage> {
                     Container(
                       margin: const EdgeInsets.only(top: 10),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blue, width: 1),
+                          border: Border.all(color: Colors.cyan, width: 1),
                           borderRadius: const BorderRadius.all(Radius.circular(4))),
+                      width: MediaQuery.of(context).size.width,
                       height: 70,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [Text(_textName1), Text(_textName2)],
+                          children: [
+                            Text(_textName1),
+                            Text(_textName2),
+                            Text(_textName9),
+                          ],
                         ),
                       ),
                     ),
                   ],
                 )
-              : SizedBox(),
+              : const SizedBox(),
           widget.userSelected == '4 OYUNCU'
               ? Column(
                   children: [
@@ -104,20 +120,27 @@ class _secondPageState extends State<secondPage> {
                     Container(
                       margin: const EdgeInsets.only(top: 10),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blue, width: 1),
+                          border: Border.all(color: Colors.cyan, width: 1),
                           borderRadius: const BorderRadius.all(Radius.circular(4))),
+                      width: MediaQuery.of(context).size.width,
                       height: 70,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [Text(_textName1), Text(_textName2), Text(_textName3), Text(_textName4)],
+                          children: [
+                            Text(_textName1),
+                            Text(_textName2),
+                            Text(_textName3),
+                            Text(_textName4),
+                            Text(_textName9),
+                          ],
                         ),
                       ),
                     ),
                   ],
                 )
-              : SizedBox(),
+              : const SizedBox(),
           widget.userSelected == '6 OYUNCU'
               ? Column(
                   children: [
@@ -145,8 +168,9 @@ class _secondPageState extends State<secondPage> {
                     Container(
                       margin: const EdgeInsets.only(top: 10),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blue, width: 1),
+                          border: Border.all(color: Colors.cyan, width: 1),
                           borderRadius: const BorderRadius.all(Radius.circular(4))),
+                      width: MediaQuery.of(context).size.width,
                       height: 70,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -158,14 +182,15 @@ class _secondPageState extends State<secondPage> {
                             Text(_textName3),
                             Text(_textName4),
                             Text(_textName5),
-                            Text(_textName6)
+                            Text(_textName6),
+                            Text(_textName9),
                           ],
                         ),
                       ),
                     ),
                   ],
                 )
-              : SizedBox(),
+              : const SizedBox(),
           widget.userSelected == '8 OYUNCU'
               ? Column(
                   children: [
@@ -201,8 +226,9 @@ class _secondPageState extends State<secondPage> {
                     Container(
                       margin: const EdgeInsets.only(top: 10),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blue, width: 1),
+                          border: Border.all(color: Colors.cyan, width: 1),
                           borderRadius: const BorderRadius.all(Radius.circular(4))),
+                      width: MediaQuery.of(context).size.width,
                       height: 70,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -217,29 +243,27 @@ class _secondPageState extends State<secondPage> {
                             Text(_textName6),
                             Text(_textName7),
                             Text(_textName8),
+                            Text(_textName9),
                           ],
                         ),
                       ),
                     ),
                   ],
                 )
-              : SizedBox(),
+              : const SizedBox(),
+          SizedBox(
+            height: 10,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width / 2,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.purple,
-                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                      textStyle: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-                  onPressed: () => _saveFormData(),
-                  child: const Text("Kaydet"),
-                ),
-              ),
+                  child: ElevatedButton1(
+                      onPressed: () => _saveFormData(),
+                      borderRadius: BorderRadius.circular(20),
+                      child: const Text('KAYDET'))),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -247,11 +271,12 @@ class _secondPageState extends State<secondPage> {
 
   TextFormField _textFormField8() {
     return TextFormField(
+      keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           labelText: "İsim Giriniz",
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -262,11 +287,12 @@ class _secondPageState extends State<secondPage> {
 
   TextFormField _textFormField7() {
     return TextFormField(
+      keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           labelText: "İsim Giriniz",
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -277,11 +303,12 @@ class _secondPageState extends State<secondPage> {
 
   TextFormField _textFormField6() {
     return TextFormField(
+      keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           labelText: "İsim Giriniz",
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -292,11 +319,12 @@ class _secondPageState extends State<secondPage> {
 
   TextFormField _textFormField5() {
     return TextFormField(
+      keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           labelText: "İsim Giriniz",
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -307,11 +335,12 @@ class _secondPageState extends State<secondPage> {
 
   TextFormField _textFormField4() {
     return TextFormField(
+      keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           labelText: "İsim Giriniz",
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -322,11 +351,12 @@ class _secondPageState extends State<secondPage> {
 
   TextFormField _textFormField3() {
     return TextFormField(
+      keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           labelText: "İsim Giriniz",
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -337,11 +367,12 @@ class _secondPageState extends State<secondPage> {
 
   TextFormField _textFormField2() {
     return TextFormField(
+      keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           labelText: "İsim Giriniz",
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -352,11 +383,12 @@ class _secondPageState extends State<secondPage> {
 
   TextFormField _textFormField1() {
     return TextFormField(
+      keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           labelText: "İsim Giriniz",
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
