@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uygulama/product/widget/ElevatedButton.dart';
+import 'package:uygulama/view/thirdPage.dart';
 import 'homePage.dart';
 
 class secondPage extends StatefulWidget {
@@ -10,38 +11,15 @@ class secondPage extends StatefulWidget {
 }
 
 class _secondPageState extends State<secondPage> {
-  String? name1, name2, name3, name4, name5, name6, name7, name8;
-  String name9 = 'LÜTFEN İSİM GİRİNİZ!';
-  String _textName1 = "",
-      _textName2 = "",
-      _textName3 = "",
-      _textName4 = "",
-      _textName5 = "",
-      _textName6 = "",
-      _textName7 = "",
-      _textName8 = "",
-      _textName9 = "";
-
-  final formKey = GlobalKey<FormState>();
-  void _saveFormData() {
-    if (formKey.currentState?.validate() == null) {
-      setState(() {
-        _textName9 = name9;
-      });
-    } else if (formKey.currentState!.validate()) {
-      formKey.currentState?.save();
-      setState(() {
-        _textName1 = name1!;
-        _textName2 = name2!;
-        _textName3 = name3!;
-        _textName4 = name4!;
-        _textName5 = name5!;
-        _textName6 = name6!;
-        _textName7 = name7!;
-        _textName8 = name8!;
-      });
-    }
-  }
+  TextEditingController name1 = TextEditingController();
+  TextEditingController name2 = TextEditingController();
+  TextEditingController name3 = TextEditingController();
+  TextEditingController name4 = TextEditingController();
+  TextEditingController name5 = TextEditingController();
+  TextEditingController name6 = TextEditingController();
+  TextEditingController name7 = TextEditingController();
+  TextEditingController name8 = TextEditingController();
+  String text = "";
 
   @override
   Widget build(BuildContext context) {
@@ -62,209 +40,144 @@ class _secondPageState extends State<secondPage> {
         ],
         title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          widget.userSelected == '2 OYUNCU'
-              ? Column(
-                  children: [
-                    _textFormField1(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField2(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.cyan, width: 1),
-                          borderRadius: const BorderRadius.all(Radius.circular(4))),
-                      width: MediaQuery.of(context).size.width,
-                      height: 70,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(_textName1),
-                            Text(_textName2),
-                            Text(_textName9),
-                          ],
-                        ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            widget.userSelected == '2 OYUNCU'
+                ? Column(
+                    children: [
+                      SizedBox(height: 250),
+                      _textFormField1(),
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                  ],
-                )
-              : const SizedBox(),
-          widget.userSelected == '4 OYUNCU'
-              ? Column(
-                  children: [
-                    _textFormField1(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField2(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField3(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField4(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.cyan, width: 1),
-                          borderRadius: const BorderRadius.all(Radius.circular(4))),
-                      width: MediaQuery.of(context).size.width,
-                      height: 70,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(_textName1),
-                            Text(_textName2),
-                            Text(_textName3),
-                            Text(_textName4),
-                            Text(_textName9),
-                          ],
-                        ),
+                      _textFormField2(),
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                  ],
-                )
-              : const SizedBox(),
-          widget.userSelected == '6 OYUNCU'
-              ? Column(
-                  children: [
-                    _textFormField1(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField2(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField3(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField4(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField5(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField6(),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.cyan, width: 1),
-                          borderRadius: const BorderRadius.all(Radius.circular(4))),
-                      width: MediaQuery.of(context).size.width,
-                      height: 70,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(_textName1),
-                            Text(_textName2),
-                            Text(_textName3),
-                            Text(_textName4),
-                            Text(_textName5),
-                            Text(_textName6),
-                            Text(_textName9),
-                          ],
-                        ),
+                    ],
+                  )
+                : const SizedBox(),
+            widget.userSelected == '4 OYUNCU'
+                ? Column(
+                    children: [
+                      SizedBox(height: 180),
+                      _textFormField1(),
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                  ],
-                )
-              : const SizedBox(),
-          widget.userSelected == '8 OYUNCU'
-              ? Column(
-                  children: [
-                    _textFormField1(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField2(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField3(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField4(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField5(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField6(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField7(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _textFormField8(),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.cyan, width: 1),
-                          borderRadius: const BorderRadius.all(Radius.circular(4))),
-                      width: MediaQuery.of(context).size.width,
-                      height: 70,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(_textName1),
-                            Text(_textName2),
-                            Text(_textName3),
-                            Text(_textName4),
-                            Text(_textName5),
-                            Text(_textName6),
-                            Text(_textName7),
-                            Text(_textName8),
-                            Text(_textName9),
-                          ],
-                        ),
+                      _textFormField2(),
+                      const SizedBox(
+                        height: 10,
                       ),
+                      _textFormField3(),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      _textFormField4(),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  )
+                : const SizedBox(),
+            widget.userSelected == '6 OYUNCU'
+                ? Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 120),
+                        _textFormField1(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField2(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField3(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField4(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField5(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField6(),
+                      ],
                     ),
-                  ],
-                )
-              : const SizedBox(),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                  child: ElevatedButton1(
-                      onPressed: () => _saveFormData(),
-                      borderRadius: BorderRadius.circular(20),
-                      child: const Text('KAYDET'))),
-            ],
-          ),
-        ],
+                  )
+                : const SizedBox(),
+            widget.userSelected == '8 OYUNCU'
+                ? Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 55),
+                        _textFormField1(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField2(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField3(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField4(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField5(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField6(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField7(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _textFormField8(),
+                      ],
+                    ),
+                  )
+                : const SizedBox(),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                    child: ElevatedButton1(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => thirdPage(
+                                      name1: name1.text,
+                                      name2: name2.text,
+                                      name3: name3.text,
+                                      name4: name4.text,
+                                      name5: name5.text,
+                                      name6: name6.text,
+                                      name7: name7.text,
+                                      name8: name8.text))));
+                        },
+                        borderRadius: BorderRadius.circular(20),
+                        child: const Text('KAYDET'))),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -281,7 +194,13 @@ class _secondPageState extends State<secondPage> {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
       },
-      onSaved: (data) => name8 = data,
+      controller: name8,
+      onChanged: (value) {
+        setState(() {
+          name8.text = value.toString();
+          name8.selection = TextSelection.fromPosition(TextPosition(offset: name8.text.length));
+        });
+      },
     );
   }
 
@@ -297,7 +216,13 @@ class _secondPageState extends State<secondPage> {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
       },
-      onSaved: (data) => name7 = data,
+      controller: name7,
+      onChanged: (value) {
+        setState(() {
+          name7.text = value.toString();
+          name7.selection = TextSelection.fromPosition(TextPosition(offset: name7.text.length));
+        });
+      },
     );
   }
 
@@ -313,7 +238,13 @@ class _secondPageState extends State<secondPage> {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
       },
-      onSaved: (data) => name6 = data,
+      controller: name6,
+      onChanged: (value) {
+        setState(() {
+          name6.text = value.toString();
+          name6.selection = TextSelection.fromPosition(TextPosition(offset: name6.text.length));
+        });
+      },
     );
   }
 
@@ -329,7 +260,13 @@ class _secondPageState extends State<secondPage> {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
       },
-      onSaved: (data) => name5 = data,
+      controller: name5,
+      onChanged: (value) {
+        setState(() {
+          name5.text = value.toString();
+          name5.selection = TextSelection.fromPosition(TextPosition(offset: name5.text.length));
+        });
+      },
     );
   }
 
@@ -345,7 +282,13 @@ class _secondPageState extends State<secondPage> {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
       },
-      onSaved: (data) => name4 = data,
+      controller: name4,
+      onChanged: (value) {
+        setState(() {
+          name4.text = value.toString();
+          name4.selection = TextSelection.fromPosition(TextPosition(offset: name4.text.length));
+        });
+      },
     );
   }
 
@@ -361,7 +304,13 @@ class _secondPageState extends State<secondPage> {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
       },
-      onSaved: (data) => name3 = data,
+      controller: name3,
+      onChanged: (value) {
+        setState(() {
+          name3.text = value.toString();
+          name3.selection = TextSelection.fromPosition(TextPosition(offset: name3.text.length));
+        });
+      },
     );
   }
 
@@ -377,12 +326,19 @@ class _secondPageState extends State<secondPage> {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
       },
-      onSaved: (data) => name2 = data,
+      controller: name2,
+      onChanged: (value) {
+        setState(() {
+          name2.text = value.toString();
+          name2.selection = TextSelection.fromPosition(TextPosition(offset: name2.text.length));
+        });
+      },
     );
   }
 
   TextFormField _textFormField1() {
     return TextFormField(
+      showCursor: true,
       keyboardType: TextInputType.name,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
@@ -393,7 +349,13 @@ class _secondPageState extends State<secondPage> {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
       },
-      onSaved: (data) => name1 = data,
+      controller: name1,
+      onChanged: (value) {
+        setState(() {
+          name1.text = value.toString();
+          name1.selection = TextSelection.fromPosition(TextPosition(offset: name1.text.length));
+        });
+      },
     );
   }
 }
