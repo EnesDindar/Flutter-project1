@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class thirdPage extends StatefulWidget {
-  const thirdPage(
+  thirdPage(
       {super.key,
       required this.name1,
       required this.name2,
@@ -26,6 +26,20 @@ class thirdPage extends StatefulWidget {
 }
 
 class _thirdPageState extends State<thirdPage> {
+  List<String> myList = [];
+  void addItemToList() {
+    setState(() {
+      myList.insert(0, widget.name1);
+      myList.insert(1, widget.name2);
+      myList.insert(2, widget.name3);
+      myList.insert(3, widget.name4);
+      myList.insert(4, widget.name5);
+      myList.insert(5, widget.name6);
+      myList.insert(6, widget.name7);
+      myList.insert(7, widget.name8);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +59,17 @@ class _thirdPageState extends State<thirdPage> {
         ],
         title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
       ),
-      body: Column(children: [Text(widget.name1), Text(widget.name2)]),
+      body: Column(children: [
+        Container(
+            height: 200,
+            color: Colors.red,
+            width: 200,
+            child: Text(
+              widget.name1 + widget.name2,
+              style: TextStyle(fontSize: 20, color: Colors.black),
+            )),
+        Text(myList[0], style: TextStyle(fontSize: 20, color: Colors.black)),
+      ]),
     );
   }
 }
