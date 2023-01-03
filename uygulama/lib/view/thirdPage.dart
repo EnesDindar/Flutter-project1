@@ -27,17 +27,41 @@ class thirdPage extends StatefulWidget {
 
 class _thirdPageState extends State<thirdPage> {
   List<String> myList = [];
+  late final middle = myList.length / 2;
+  late final part1 = myList.sublist(0, middle.toInt());
+  late final part2 = myList.sublist(middle.toInt());
+  int i = 0;
+  int a = 0;
   void addItemToList() {
     setState(() {
-      myList.insert(0, widget.name1);
-      myList.insert(1, widget.name2);
-      myList.insert(2, widget.name3);
-      myList.insert(3, widget.name4);
-      myList.insert(4, widget.name5);
-      myList.insert(5, widget.name6);
-      myList.insert(6, widget.name7);
-      myList.insert(7, widget.name8);
+      myList.addAll([
+        widget.name1,
+        widget.name2,
+        widget.name3,
+        widget.name4,
+        widget.name5,
+        widget.name6,
+        widget.name7,
+        widget.name8
+      ]);
     });
+    int i = 0;
+    while (i != '' && i < 8) {
+      myList.remove(i);
+      i++;
+      if (i != '' && i != null) {
+        break;
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    addItemToList();
+    myList.shuffle();
+    part1.shuffle();
+    part2.shuffle();
   }
 
   @override
@@ -59,17 +83,36 @@ class _thirdPageState extends State<thirdPage> {
         ],
         title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
       ),
-      body: Column(children: [
-        Container(
-            height: 200,
-            color: Colors.red,
-            width: 200,
-            child: Text(
-              widget.name1 + widget.name2,
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            )),
-        Text(myList[0], style: TextStyle(fontSize: 20, color: Colors.black)),
-      ]),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 350),
+        child: Column(children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                  height: 200,
+                  color: Colors.red,
+                  width: 150,
+                  child: Center(
+                    child: Text(
+                      part1[a].toString(),
+                      style: TextStyle(fontSize: 20, color: Colors.black),
+                    ),
+                  )),
+              Container(
+                  height: 200,
+                  color: Colors.red,
+                  width: 150,
+                  child: Center(
+                    child: Text(
+                      part2[a].toString(),
+                      style: TextStyle(fontSize: 20, color: Colors.black),
+                    ),
+                  )),
+            ],
+          ),
+        ]),
+      ),
     );
   }
 }
