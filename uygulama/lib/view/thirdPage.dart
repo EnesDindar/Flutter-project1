@@ -27,11 +27,10 @@ class thirdPage extends StatefulWidget {
 
 class _thirdPageState extends State<thirdPage> {
   List<String> myList = [];
+  final List<int> colorCodes = <int>[600, 500, 100];
   late final middle = myList.length / 2;
   late final part1 = myList.sublist(0, middle.toInt());
   late final part2 = myList.sublist(middle.toInt());
-  int i = 0;
-  int a = 0;
   void addItemToList() {
     setState(() {
       myList.addAll([
@@ -45,23 +44,14 @@ class _thirdPageState extends State<thirdPage> {
         widget.name8
       ]);
     });
-    int i = 0;
-    while (i != '' && i < 8) {
-      myList.remove(i);
-      i++;
-      if (i != '' && i != null) {
-        break;
-      }
-    }
   }
 
   @override
   void initState() {
     super.initState();
     addItemToList();
+    myList.removeWhere((i) => ['', null].contains(i));
     myList.shuffle();
-    part1.shuffle();
-    part2.shuffle();
   }
 
   @override
@@ -85,33 +75,80 @@ class _thirdPageState extends State<thirdPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 350),
-        child: Column(children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                  height: 200,
-                  color: Colors.red,
-                  width: 150,
-                  child: Center(
-                    child: Text(
-                      part1[a].toString(),
-                      style: TextStyle(fontSize: 20, color: Colors.black),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 160,
+                  height: 205,
+                  child: ListView.builder(
+                      padding: const EdgeInsets.all(8),
+                      itemCount: part1.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+                          ),
+                          height: 50,
+                          child: Center(child: Text(part1[index])),
+                        );
+                      }),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+                    border: Border(
+                      left: BorderSide(
+                        color: Colors.cyan,
+                        width: 10.0,
+                      ),
+                      right: BorderSide(
+                        color: Colors.cyan,
+                        width: 10.0,
+                      ),
+                      top: BorderSide(
+                        color: Colors.indigo,
+                        width: 10.0,
+                      ),
+                      bottom: BorderSide(
+                        color: Colors.indigo,
+                        width: 10.0,
+                      ),
                     ),
-                  )),
-              Container(
-                  height: 200,
-                  color: Colors.red,
-                  width: 150,
-                  child: Center(
-                    child: Text(
-                      part2[a].toString(),
-                      style: TextStyle(fontSize: 20, color: Colors.black),
-                    ),
-                  )),
-            ],
-          ),
-        ]),
+                  ),
+                  child: const Text(
+                    "VS",
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                ),
+                Container(
+                  width: 160,
+                  height: 204,
+                  child: ListView.builder(
+                      padding: const EdgeInsets.all(8),
+                      itemCount: part2.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.white,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                          height: 50,
+                          child: Center(child: Text(part2[index])),
+                        );
+                      }),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
