@@ -73,82 +73,85 @@ class _thirdPageState extends State<thirdPage> {
         ],
         title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 350),
-        child: Column(
-          children: [
-            Row(
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(width: 100, height: 100, color: Colors.red),
+              Container(width: 100, height: 100, color: Colors.red)
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                ListView.builder(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.only(left: 5),
+                    itemCount: part1.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 3),
+                        child: Container(
+                            width: 160,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                  colors: [Colors.indigo, Colors.cyan],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: ListTile(
+                              leading: const Icon(Icons.sports_soccer_outlined),
+                              iconColor: Colors.white,
+                              textColor: Colors.white,
+                              title: Text(part1[index], style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                            )),
+                      );
+                    }),
                 Container(
-                  width: 160,
-                  height: 205,
-                  child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemCount: part1.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          decoration: const BoxDecoration(
-                            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
-                          ),
-                          height: 50,
-                          child: Center(child: Text(part1[index])),
-                        );
-                      }),
-                ),
-                Container(
+                  width: 50.0,
+                  height: 50.0,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
-                    border: Border(
-                      left: BorderSide(
-                        color: Colors.cyan,
-                        width: 10.0,
-                      ),
-                      right: BorderSide(
-                        color: Colors.cyan,
-                        width: 10.0,
-                      ),
-                      top: BorderSide(
-                        color: Colors.indigo,
-                        width: 10.0,
-                      ),
-                      bottom: BorderSide(
-                        color: Colors.indigo,
-                        width: 10.0,
-                      ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "VS",
+                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  child: const Text(
-                    "VS",
-                    style: TextStyle(fontSize: 20.0),
-                  ),
                 ),
-                Container(
-                  width: 160,
-                  height: 204,
-                  child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemCount: part2.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          decoration: const BoxDecoration(
-                            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Colors.white,
-                                width: 1.0,
-                              ),
-                            ),
-                          ),
-                          height: 50,
-                          child: Center(child: Text(part2[index])),
-                        );
-                      }),
-                ),
+                ListView.builder(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.only(right: 5),
+                    itemCount: part2.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 3),
+                        child: Container(
+                            width: 160,
+                            decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                    colors: [Colors.indigo, Colors.cyan],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: ListTile(
+                              leading: const Icon(Icons.sports_soccer_outlined),
+                              iconColor: Colors.white,
+                              textColor: Colors.white,
+                              title: Text(part2[index], style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                            )),
+                      );
+                    }),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
