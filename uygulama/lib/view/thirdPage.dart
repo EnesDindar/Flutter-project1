@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class thirdPage extends StatefulWidget {
   thirdPage(
@@ -27,10 +26,46 @@ class thirdPage extends StatefulWidget {
 
 class _thirdPageState extends State<thirdPage> {
   List<String> myList = [];
-  final List<int> colorCodes = <int>[600, 500, 100];
+  List teamList = [];
+  List teamMap1 = [
+    {'Real Madrid': Image.asset('assets/RealMadrid.png')},
+    {'Milan': Image.asset('assets/Milan.png')},
+    {'Manchester City': Image.asset('assets/ManCity.png')},
+    {'Bayern Münih': Image.asset('assets/BayernMunchen.png')},
+    {'FC Liverpool': Image.asset('assets/Liverpool.png')},
+    {'Paris Saint-Germain': Image.asset('assets/PSG.png')},
+    {'Chelsea': Image.asset('assets/Chelsea.png')},
+    {'Inter': Image.asset('assets/Inter.png')},
+    {'Borussia Dortmund': Image.asset('assets/BorussiaDortmund.png')},
+    {'FC Barcelona': Image.asset('assets/Barcelona.png')},
+    {'Atlético de Madrid': Image.asset('assets/AtleticoMadrid.png')},
+    {'Juventus': Image.asset('assets/Juventus.png')},
+    {'Manchester United': Image.asset('assets/ManchesterUnited.png')}
+  ];
   late final middle = myList.length / 2;
   late final part1 = myList.sublist(0, middle.toInt());
   late final part2 = myList.sublist(middle.toInt());
+  void teamView() {
+    setState(() {
+      final teamMap = {
+        'Real Madrid': Image.asset('assets/RealMadrid.png'),
+        'Milan': Image.asset('assets/Milan.png'),
+        'Manchester City': Image.asset('assets/ManCity.png'),
+        'Bayern Münih': Image.asset('assets/BayernMunchen.png'),
+        'FC Liverpool': Image.asset('assets/Liverpool.png'),
+        'Paris Saint-Germain': Image.asset('assets/PSG.png'),
+        'Chelsea': Image.asset('assets/Chelsea.png'),
+        'Inter': Image.asset('assets/Inter.png'),
+        'Borussia Dortmund': Image.asset('assets/BorussiaDortmund.png'),
+        'FC Barcelona': Image.asset('assets/Barcelona.png'),
+        'Atlético de Madrid': Image.asset('assets/AtleticoMadrid.png'),
+        'Juventus': Image.asset('assets/Juventus.png'),
+        'Manchester United': Image.asset('assets/ManchesterUnited.png'),
+      };
+      teamMap.entries.map((e) => teamList.add({e.key: e.value})).toList();
+    });
+  }
+
   void addItemToList() {
     setState(() {
       myList.addAll([
@@ -52,10 +87,13 @@ class _thirdPageState extends State<thirdPage> {
     addItemToList();
     myList.removeWhere((i) => ['', null].contains(i));
     myList.shuffle();
+    teamView();
   }
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -73,85 +111,86 @@ class _thirdPageState extends State<thirdPage> {
         ],
         title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(width: 100, height: 100, color: Colors.red),
-              Container(width: 100, height: 100, color: Colors.red)
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: SizedBox(
+        height: height,
+        width: width,
+        child: Column(
+          children: [
+            Row(
               children: [
-                ListView.builder(
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.only(left: 5),
-                    itemCount: part1.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 3),
-                        child: Container(
-                            width: 160,
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                  colors: [Colors.indigo, Colors.cyan],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: ListTile(
-                              leading: const Icon(Icons.sports_soccer_outlined),
-                              iconColor: Colors.white,
-                              textColor: Colors.white,
-                              title: Text(part1[index], style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-                            )),
-                      );
-                    }),
                 Container(
-                  width: 50.0,
-                  height: 50.0,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "VS",
-                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                  height: 200,
+                  width: 200,
                 ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.only(right: 5),
-                    itemCount: part2.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 3),
-                        child: Container(
-                            width: 160,
-                            decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    colors: [Colors.indigo, Colors.cyan],
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: ListTile(
-                              leading: const Icon(Icons.sports_soccer_outlined),
-                              iconColor: Colors.white,
-                              textColor: Colors.white,
-                              title: Text(part2[index], style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-                            )),
-                      );
-                    }),
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 25),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 5,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: part1.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Column(
+                            children: [
+                              Container(
+                                  margin: const EdgeInsets.all(3),
+                                  decoration: BoxDecoration(
+                                    gradient: const LinearGradient(
+                                        colors: [Colors.indigo, Colors.cyan],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight),
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: ListTile(
+                                    leading: const Icon(Icons.sports_soccer_outlined),
+                                    iconColor: Colors.white,
+                                    textColor: Colors.white,
+                                    title: Text(part1[index],
+                                        style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                                  )),
+                            ],
+                          );
+                        }),
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: part2.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Column(
+                            children: [
+                              Container(
+                                  margin: const EdgeInsets.all(3),
+                                  decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                          colors: [Colors.indigo, Colors.cyan],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight),
+                                      borderRadius: BorderRadius.circular(30)),
+                                  child: ListTile(
+                                    leading: const Icon(
+                                      Icons.sports_soccer_outlined,
+                                    ),
+                                    iconColor: Colors.white,
+                                    textColor: Colors.white,
+                                    title: Text(part2[index],
+                                        textAlign: TextAlign.left,
+                                        style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                                  )),
+                            ],
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
