@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class thirdPage extends StatefulWidget {
   thirdPage(
@@ -26,43 +27,51 @@ class thirdPage extends StatefulWidget {
 
 class _thirdPageState extends State<thirdPage> {
   List<String> myList = [];
-  List teamList = [];
-  List teamMap1 = [
-    {'Real Madrid': Image.asset('assets/RealMadrid.png')},
-    {'Milan': Image.asset('assets/Milan.png')},
-    {'Manchester City': Image.asset('assets/ManCity.png')},
-    {'Bayern Münih': Image.asset('assets/BayernMunchen.png')},
-    {'FC Liverpool': Image.asset('assets/Liverpool.png')},
-    {'Paris Saint-Germain': Image.asset('assets/PSG.png')},
-    {'Chelsea': Image.asset('assets/Chelsea.png')},
-    {'Inter': Image.asset('assets/Inter.png')},
-    {'Borussia Dortmund': Image.asset('assets/BorussiaDortmund.png')},
-    {'FC Barcelona': Image.asset('assets/Barcelona.png')},
-    {'Atlético de Madrid': Image.asset('assets/AtleticoMadrid.png')},
-    {'Juventus': Image.asset('assets/Juventus.png')},
-    {'Manchester United': Image.asset('assets/ManchesterUnited.png')}
+  List teamList = [
+    'Real Madrid',
+    'Milan',
+    'Manchester City',
+    'Bayern Münih',
+    'FC Liverpool',
+    'Paris Saint-Germain',
+    'Chelsea',
+    'Inter',
+    'Borussia Dortmund',
+    'FC Barcelona',
+    'Atlético de Madrid',
+    'Juventus',
+    'Manchester United'
+  ];
+  List teamImage = [
+    'assets/images/RealMadrid.png',
+    'assets/images/Milan.png',
+    'assets/images/ManCity.png',
+    'assets/images/BayernMunchen.png',
+    'assets/images/Liverpool.png',
+    'assets/images/PSG.png',
+    'assets/images/Chelsea.png',
+    'assets/images/Inter.png',
+    'assets/images/BorussiaDortmund.png',
+    'assets/images/Barcelona.png',
+    'assets/images/AtleticoMadrid.png',
+    'assets/images/Juventus.png',
+    'assets/images/ManchesterUnited.png'
   ];
   late final middle = myList.length / 2;
   late final part1 = myList.sublist(0, middle.toInt());
   late final part2 = myList.sublist(middle.toInt());
-  void teamView() {
+
+  void randomNumber() {
+    var random = new Random();
     setState(() {
-      final teamMap = {
-        'Real Madrid': Image.asset('assets/RealMadrid.png'),
-        'Milan': Image.asset('assets/Milan.png'),
-        'Manchester City': Image.asset('assets/ManCity.png'),
-        'Bayern Münih': Image.asset('assets/BayernMunchen.png'),
-        'FC Liverpool': Image.asset('assets/Liverpool.png'),
-        'Paris Saint-Germain': Image.asset('assets/PSG.png'),
-        'Chelsea': Image.asset('assets/Chelsea.png'),
-        'Inter': Image.asset('assets/Inter.png'),
-        'Borussia Dortmund': Image.asset('assets/BorussiaDortmund.png'),
-        'FC Barcelona': Image.asset('assets/Barcelona.png'),
-        'Atlético de Madrid': Image.asset('assets/AtleticoMadrid.png'),
-        'Juventus': Image.asset('assets/Juventus.png'),
-        'Manchester United': Image.asset('assets/ManchesterUnited.png'),
-      };
-      teamMap.entries.map((e) => teamList.add({e.key: e.value})).toList();
+      int num1 = Random().nextInt(14);
+      int num2 = Random().nextInt(14);
+
+      while (num1 == num2) {
+        num1 = Random().nextInt(14);
+        num2 = Random().nextInt(14);
+      }
+      print(num1);
     });
   }
 
@@ -87,7 +96,7 @@ class _thirdPageState extends State<thirdPage> {
     addItemToList();
     myList.removeWhere((i) => ['', null].contains(i));
     myList.shuffle();
-    teamView();
+    randomNumber();
   }
 
   @override
@@ -118,10 +127,7 @@ class _thirdPageState extends State<thirdPage> {
           children: [
             Row(
               children: [
-                Container(
-                  height: 200,
-                  width: 200,
-                ),
+                Container(height: 200, width: 200, child: Image.asset(teamImage[0].toString())),
               ],
             ),
             Padding(
