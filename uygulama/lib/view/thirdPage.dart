@@ -111,7 +111,7 @@ class _thirdPageState extends State<thirdPage> {
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+            gradient: LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
           ),
         ),
         actions: const [
@@ -133,84 +133,90 @@ class _thirdPageState extends State<thirdPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 20,
-                            offset: Offset(0, 1), // Shadow position
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: height / 3,
-                            width: width / 2,
-                            child: Image.asset(
-                              teamImage[result1].toString(),
-                              height: 300,
-                              width: 200,
-                              fit: BoxFit.fill,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black,
+                              blurRadius: 20,
+                              offset: Offset(0, 1), // Shadow position
                             ),
-                          ),
-                          Container(
-                              height: height / 2 / 3,
+                          ],
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: height / 3,
                               width: width / 2,
-                              alignment: Alignment.center,
-                              child: Text(teamList[result1],
-                                  maxLines: 4,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 30.0,
-                                      color: Colors.white,
-                                      decoration: TextDecoration.none,
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold)))
-                        ],
+                              child: Image.asset(
+                                teamImage[result1].toString(),
+                                height: 300,
+                                width: 200,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Container(
+                                height: height / 2 / 3,
+                                width: width / 2,
+                                alignment: Alignment.center,
+                                child: Text(teamList[result1],
+                                    maxLines: 4,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                        fontSize: 30.0,
+                                        color: Colors.white,
+                                        decoration: TextDecoration.none,
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold)))
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 20,
-                            offset: Offset(0, 1), // Shadow position
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: height / 3,
-                            width: width / 2,
-                            child: Image.asset(
-                              teamImage[result2].toString(),
-                              height: 300,
-                              width: 200,
-                              fit: BoxFit.fill,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black,
+                              blurRadius: 20,
+                              offset: Offset(0, 1), // Shadow position
                             ),
-                          ),
-                          Container(
-                              height: height / 2 / 3,
+                          ],
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: height / 3,
                               width: width / 2,
-                              alignment: Alignment.center,
-                              child: Text(teamList[result2],
-                                  maxLines: 4,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 30.0,
-                                      color: Colors.white,
-                                      decoration: TextDecoration.none,
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold)))
-                        ],
+                              child: Image.asset(
+                                teamImage[result2].toString(),
+                                height: 300,
+                                width: 200,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Container(
+                                height: height / 2 / 3,
+                                width: width / 2,
+                                alignment: Alignment.center,
+                                child: Text(teamList[result2],
+                                    maxLines: 4,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                        fontSize: 30.0,
+                                        color: Colors.white,
+                                        decoration: TextDecoration.none,
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold)))
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -230,7 +236,8 @@ class _thirdPageState extends State<thirdPage> {
                                   Container(
                                       margin: const EdgeInsets.all(3),
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+                                        gradient:
+                                            const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
                                         borderRadius: BorderRadius.circular(20),
                                         boxShadow: const [
                                           BoxShadow(
@@ -262,7 +269,8 @@ class _thirdPageState extends State<thirdPage> {
                                   Container(
                                       margin: const EdgeInsets.all(3),
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+                                        gradient:
+                                            const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
                                         borderRadius: BorderRadius.circular(20),
                                         boxShadow: const [
                                           BoxShadow(
@@ -294,14 +302,14 @@ class _thirdPageState extends State<thirdPage> {
           ),
         ),
         Positioned(
-          top: 348,
+          top: 358,
           left: 157,
           child: Container(
             width: 80,
             height: 70,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+              gradient: const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
               borderRadius: BorderRadius.circular(20),
               boxShadow: const [
                 BoxShadow(

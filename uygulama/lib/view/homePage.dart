@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uygulama/view/secondPage.dart';
 import 'package:uygulama/product/widget/ElevatedButton.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class homePage extends StatefulWidget {
   State createState() => homePageState();
@@ -10,13 +11,24 @@ class homePageState extends State<homePage> {
   String dropdownValue = 'Oyuncu Sayısını Giriniz...';
   final String uyari = 'Oyuncu Sayısını Giriniz...';
   @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
+
+  void initialization() async {
+    await Future.delayed(const Duration(seconds: 2));
+    FlutterNativeSplash.remove();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+            gradient: LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
           ),
         ),
         leading: const Padding(
@@ -40,17 +52,20 @@ class homePageState extends State<homePage> {
               padding: const EdgeInsets.only(top: 250),
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                    gradient: const LinearGradient(colors: [Colors.cyan, Colors.indigo]),
-                    borderRadius: BorderRadius.circular(5),
-                    boxShadow: const <BoxShadow>[
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.57), //shadow for button
-                          blurRadius: 5) //blur radius of shadow
-                    ]),
+                  gradient: const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+                  borderRadius: BorderRadius.circular(5),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 20,
+                      offset: Offset(0, 1), // Shadow position
+                    ),
+                  ],
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 30, right: 30),
                   child: DropdownButtonFormField<String>(
-                    dropdownColor: Colors.cyan,
+                    dropdownColor: Colors.deepPurple,
                     elevation: 0,
                     isExpanded: true,
                     icon: const Icon(Icons.arrow_drop_down),

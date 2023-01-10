@@ -31,7 +31,28 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_launcher_icons: ^0.11.0
+  flutter_native_splash: ^2.2.16
+flutter_native_splash:
+  color: "#673AB7"
+  image: "assets/images/konsol.png"
+  android: true
+  #flutter_app_icon
+  flutter_launcher_icons: "^0.11.0"
+flutter_icons:
+  android: "launcher_icon"
+  image_path: "assets/images/konsol.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/konsol.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/images/konsol.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  
   shimmer: ^2.0.0
   dio: ^4.0.6
 
@@ -108,6 +129,8 @@ flutter:
     - assets/images/AtleticoMadrid.png
     - assets/images/Juventus.png
     - assets/images/ManchesterUnited.png
+    - assets/images/konsol.png
+    - assets/images/konsol1.png
     
     
 

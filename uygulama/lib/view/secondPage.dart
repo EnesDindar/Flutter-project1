@@ -28,7 +28,7 @@ class _secondPageState extends State<secondPage> {
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.indigo, Colors.cyan]),
+            gradient: LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
           ),
         ),
         actions: const [
@@ -173,7 +173,7 @@ class _secondPageState extends State<secondPage> {
                                       name8: name8.text))));
                         },
                         borderRadius: BorderRadius.circular(20),
-                        child: const Text('KAYDET'))),
+                        child: Text('KAYDET'))),
               ],
             ),
           ],
@@ -185,11 +185,14 @@ class _secondPageState extends State<secondPage> {
   TextFormField _textFormField8() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.person),
           labelText: "İsim Giriniz",
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -207,11 +210,14 @@ class _secondPageState extends State<secondPage> {
   TextFormField _textFormField7() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.person),
           labelText: "İsim Giriniz",
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -229,11 +235,14 @@ class _secondPageState extends State<secondPage> {
   TextFormField _textFormField6() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.person),
           labelText: "İsim Giriniz",
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -251,11 +260,14 @@ class _secondPageState extends State<secondPage> {
   TextFormField _textFormField5() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.person),
           labelText: "İsim Giriniz",
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -273,11 +285,14 @@ class _secondPageState extends State<secondPage> {
   TextFormField _textFormField4() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.person),
           labelText: "İsim Giriniz",
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -295,11 +310,14 @@ class _secondPageState extends State<secondPage> {
   TextFormField _textFormField3() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.person),
           labelText: "İsim Giriniz",
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -317,11 +335,14 @@ class _secondPageState extends State<secondPage> {
   TextFormField _textFormField2() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.person),
           labelText: "İsim Giriniz",
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -340,11 +361,14 @@ class _secondPageState extends State<secondPage> {
     return TextFormField(
       showCursor: true,
       keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.person),
           labelText: "İsim Giriniz",
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           hintText: "İsim",
-          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan))),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
