@@ -17,7 +17,7 @@ class ElevatedButton1 extends StatelessWidget {
     this.borderRadius,
     this.width = 300.0,
     this.height = 44.0,
-    this.gradient = const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+    this.gradient = const LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
   }) : super(key: key);
 
   @override
@@ -31,7 +31,7 @@ class ElevatedButton1 extends StatelessWidget {
         borderRadius: borderRadius,
         boxShadow: const [
           BoxShadow(
-            color: Colors.black,
+            color: ColorsItems.black,
             blurRadius: 20,
             offset: Offset(0, 1), // Shadow position
           ),
@@ -40,8 +40,8 @@ class ElevatedButton1 extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
+          backgroundColor: ColorsItems.transparent,
+          shadowColor: ColorsItems.transparent,
           shape: RoundedRectangleBorder(borderRadius: borderRadius),
         ),
         child: child,

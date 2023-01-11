@@ -28,22 +28,23 @@ class homePageState extends State<homePage> {
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+            gradient: LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
           ),
         ),
         leading: const Padding(
           padding: EdgeInsets.only(left: 20.0),
           child: Icon(Icons.sports_soccer_outlined,
-              color: Colors.white, shadows: [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+              color: ColorsItems.white, shadows: [Shadow(color: ColorsItems.black, blurRadius: 15.0)], size: 40),
         ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 20.0),
             child: Icon(Icons.sports_soccer_outlined,
-                color: Colors.white, shadows: [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+                color: ColorsItems.white, shadows: [Shadow(color: ColorsItems.black, blurRadius: 15.0)], size: 40),
           ),
         ],
-        title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
+        title:
+            const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: ColorsItems.black, blurRadius: 15.0)])),
       ),
       body: Center(
         child: Column(
@@ -52,11 +53,11 @@ class homePageState extends State<homePage> {
               padding: const EdgeInsets.only(top: 250),
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+                  gradient: const LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
                   borderRadius: BorderRadius.circular(5),
                   boxShadow: const [
                     BoxShadow(
-                      color: Colors.black,
+                      color: ColorsItems.black,
                       blurRadius: 20,
                       offset: Offset(0, 1), // Shadow position
                     ),
@@ -65,12 +66,12 @@ class homePageState extends State<homePage> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 30, right: 30),
                   child: DropdownButtonFormField<String>(
-                    dropdownColor: Colors.deepPurple,
+                    dropdownColor: ColorsItems.indigo,
                     elevation: 0,
                     isExpanded: true,
                     icon: const Icon(Icons.arrow_drop_down),
                     iconSize: 42,
-                    iconEnabledColor: Colors.white,
+                    iconEnabledColor: ColorsItems.white,
                     value: dropdownValue,
                     items: <String>['Oyuncu Sayısını Giriniz...', '2 OYUNCU', '4 OYUNCU', '6 OYUNCU', '8 OYUNCU']
                         .map<DropdownMenuItem<String>>((String value) {
@@ -78,7 +79,7 @@ class homePageState extends State<homePage> {
                         value: value,
                         child: Text(
                           value,
-                          style: const TextStyle(fontSize: 18, color: Colors.white),
+                          style: const TextStyle(fontSize: 18, color: ColorsItems.white),
                         ),
                       );
                     }).toList(),
@@ -134,4 +135,12 @@ showAlertDialog(BuildContext context) {
       return alert;
     },
   );
+}
+
+class ColorsItems {
+  static const Color indigo = Colors.indigo;
+  static const Color cyan = Colors.cyan;
+  static const Color white = Colors.white;
+  static const Color black = Colors.black;
+  static const Color transparent = Colors.transparent;
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:uygulama/view/secondPage.dart';
+import 'package:uygulama/view/homePage.dart';
 
 class thirdPage extends StatefulWidget {
   thirdPage({
@@ -111,17 +113,18 @@ class _thirdPageState extends State<thirdPage> {
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+            gradient: LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
           ),
         ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 20.0),
             child: Icon(Icons.sports_soccer_outlined,
-                color: Colors.white, shadows: [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+                color: ColorsItems.white, shadows: [Shadow(color: ColorsItems.black, blurRadius: 15.0)], size: 40),
           ),
         ],
-        title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
+        title:
+            const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: ColorsItems.black, blurRadius: 15.0)])),
       ),
       body: Stack(children: [
         SizedBox(
@@ -137,11 +140,11 @@ class _thirdPageState extends State<thirdPage> {
                       padding: const EdgeInsets.only(top: 10),
                       child: Container(
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+                          gradient: const LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: const [
                             BoxShadow(
-                              color: Colors.black,
+                              color: ColorsItems.black,
                               blurRadius: 20,
                               offset: Offset(0, 1), // Shadow position
                             ),
@@ -168,7 +171,7 @@ class _thirdPageState extends State<thirdPage> {
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
                                         fontSize: 30.0,
-                                        color: Colors.white,
+                                        color: ColorsItems.white,
                                         decoration: TextDecoration.none,
                                         fontStyle: FontStyle.italic,
                                         fontWeight: FontWeight.bold)))
@@ -180,11 +183,11 @@ class _thirdPageState extends State<thirdPage> {
                       padding: const EdgeInsets.only(top: 10),
                       child: Container(
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+                          gradient: const LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: const [
                             BoxShadow(
-                              color: Colors.black,
+                              color: ColorsItems.black,
                               blurRadius: 20,
                               offset: Offset(0, 1), // Shadow position
                             ),
@@ -211,7 +214,7 @@ class _thirdPageState extends State<thirdPage> {
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
                                         fontSize: 30.0,
-                                        color: Colors.white,
+                                        color: ColorsItems.white,
                                         decoration: TextDecoration.none,
                                         fontStyle: FontStyle.italic,
                                         fontWeight: FontWeight.bold)))
@@ -236,12 +239,11 @@ class _thirdPageState extends State<thirdPage> {
                                   Container(
                                       margin: const EdgeInsets.all(3),
                                       decoration: BoxDecoration(
-                                        gradient:
-                                            const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+                                        gradient: const LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
                                         borderRadius: BorderRadius.circular(20),
                                         boxShadow: const [
                                           BoxShadow(
-                                            color: Colors.black,
+                                            color: ColorsItems.black,
                                             blurRadius: 20,
                                             offset: Offset(0, 1), // Shadow position
                                           ),
@@ -249,8 +251,8 @@ class _thirdPageState extends State<thirdPage> {
                                       ),
                                       child: ListTile(
                                         leading: const Icon(Icons.sports_soccer_outlined),
-                                        iconColor: Colors.white,
-                                        textColor: Colors.white,
+                                        iconColor: ColorsItems.white,
+                                        textColor: ColorsItems.white,
                                         title: Text(part1[index],
                                             style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
                                       )),
@@ -269,12 +271,11 @@ class _thirdPageState extends State<thirdPage> {
                                   Container(
                                       margin: const EdgeInsets.all(3),
                                       decoration: BoxDecoration(
-                                        gradient:
-                                            const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+                                        gradient: const LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
                                         borderRadius: BorderRadius.circular(20),
                                         boxShadow: const [
                                           BoxShadow(
-                                            color: Colors.black,
+                                            color: ColorsItems.black,
                                             blurRadius: 20,
                                             offset: Offset(0, 1), // Shadow position
                                           ),
@@ -284,8 +285,8 @@ class _thirdPageState extends State<thirdPage> {
                                         leading: const Icon(
                                           Icons.sports_soccer_outlined,
                                         ),
-                                        iconColor: Colors.white,
-                                        textColor: Colors.white,
+                                        iconColor: ColorsItems.white,
+                                        textColor: ColorsItems.white,
                                         title: Text(part2[index],
                                             textAlign: TextAlign.left,
                                             style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
@@ -309,11 +310,11 @@ class _thirdPageState extends State<thirdPage> {
             height: 70,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              gradient: const LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+              gradient: const LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
               borderRadius: BorderRadius.circular(20),
               boxShadow: const [
                 BoxShadow(
-                  color: Colors.black,
+                  color: ColorsItems.black,
                   blurRadius: 20,
                   offset: Offset(0, 1), // Shadow position
                 ),
@@ -321,7 +322,10 @@ class _thirdPageState extends State<thirdPage> {
             ),
             child: const Text('VS',
                 style: TextStyle(
-                    color: Colors.white, fontSize: 30.0, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold)),
+                    color: ColorsItems.white,
+                    fontSize: 30.0,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold)),
           ),
         ),
       ]),

@@ -7,10 +7,10 @@ class secondPage extends StatefulWidget {
   const secondPage({super.key, this.userSelected});
   final String? userSelected; //dropdownValue degeri
   @override
-  State<secondPage> createState() => _secondPageState();
+  State<secondPage> createState() => secondPageState();
 }
 
-class _secondPageState extends State<secondPage> {
+class secondPageState extends State<secondPage> {
   TextEditingController name1 = TextEditingController();
   TextEditingController name2 = TextEditingController();
   TextEditingController name3 = TextEditingController();
@@ -28,17 +28,18 @@ class _secondPageState extends State<secondPage> {
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.deepPurple, Colors.purpleAccent]),
+            gradient: LinearGradient(colors: [ColorsItems.indigo, ColorsItems.cyan]),
           ),
         ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 20.0),
             child: Icon(Icons.sports_soccer_outlined,
-                color: Colors.white, shadows: [Shadow(color: Colors.black, blurRadius: 15.0)], size: 40),
+                color: ColorsItems.white, shadows: [Shadow(color: ColorsItems.black, blurRadius: 15.0)], size: 40),
           ),
         ],
-        title: const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: Colors.black, blurRadius: 15.0)])),
+        title:
+            const Text('FIFA MATCH', style: TextStyle(shadows: [Shadow(color: ColorsItems.black, blurRadius: 15.0)])),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -192,7 +193,7 @@ class _secondPageState extends State<secondPage> {
           hintText: "İsim",
           hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
+              borderSide: const BorderSide(color: ColorsItems.indigo), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -217,7 +218,7 @@ class _secondPageState extends State<secondPage> {
           hintText: "İsim",
           hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
+              borderSide: const BorderSide(color: ColorsItems.indigo), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -242,7 +243,7 @@ class _secondPageState extends State<secondPage> {
           hintText: "İsim",
           hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
+              borderSide: const BorderSide(color: ColorsItems.indigo), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -267,7 +268,7 @@ class _secondPageState extends State<secondPage> {
           hintText: "İsim",
           hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
+              borderSide: const BorderSide(color: ColorsItems.indigo), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -292,7 +293,7 @@ class _secondPageState extends State<secondPage> {
           hintText: "İsim",
           hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
+              borderSide: const BorderSide(color: ColorsItems.indigo), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -317,7 +318,7 @@ class _secondPageState extends State<secondPage> {
           hintText: "İsim",
           hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
+              borderSide: const BorderSide(color: ColorsItems.indigo), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -342,7 +343,7 @@ class _secondPageState extends State<secondPage> {
           hintText: "İsim",
           hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
+              borderSide: const BorderSide(color: ColorsItems.indigo), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;
@@ -368,7 +369,7 @@ class _secondPageState extends State<secondPage> {
           hintText: "İsim",
           hintStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.deepPurple), borderRadius: BorderRadius.circular(20))),
+              borderSide: const BorderSide(color: ColorsItems.indigo), borderRadius: BorderRadius.circular(20))),
       validator: (value) {
         if (value!.length < 3) return "İsim alanı en az 3 karakter olmalıdır";
         return null;

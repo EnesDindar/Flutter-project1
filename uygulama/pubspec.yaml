@@ -34,7 +34,7 @@ dependencies:
   flutter_launcher_icons: ^0.11.0
   flutter_native_splash: ^2.2.16
 flutter_native_splash:
-  color: "#673AB7"
+  color: "#3F51B5"
   image: "assets/images/konsol.png"
   android: true
   #flutter_app_icon
