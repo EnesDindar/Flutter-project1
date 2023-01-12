@@ -165,7 +165,7 @@ class _thirdPageState extends State<thirdPage> {
                             Container(
                                 height: height / 2 / 3,
                                 width: width / 2,
-                                alignment: Alignment.center,
+                                alignment: Alignment.topCenter,
                                 child: Text(teamList[result1],
                                     maxLines: 4,
                                     textAlign: TextAlign.center,
@@ -208,7 +208,7 @@ class _thirdPageState extends State<thirdPage> {
                             Container(
                                 height: height / 2 / 3,
                                 width: width / 2,
-                                alignment: Alignment.center,
+                                alignment: Alignment.topCenter,
                                 child: Text(teamList[result2],
                                     maxLines: 4,
                                     textAlign: TextAlign.center,
@@ -303,8 +303,8 @@ class _thirdPageState extends State<thirdPage> {
           ),
         ),
         Positioned(
-          top: 358,
-          left: 157,
+          top: height / 2.20,
+          left: width / 2.53,
           child: Container(
             width: 80,
             height: 70,
